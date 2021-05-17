@@ -1,0 +1,14 @@
+<div id="mainDiv" style="margin: auto; width: 400px;">
+    <div class="row" *ngIf="!submitted">
+        <label>Title</label><br><br>
+        <input type="text" [(ngModel)]="title"/><br>
+        <label>Description</label><br><br>
+        <input type="text" [(ngModel)]="description"/>  
+        <button class="col-sm-4 btn  btn-success" (click)="addTutorial()" type="button">Submit</button>
+    </div>
+    <div *ngIf="submitted">
+        <h1>Added Successfully.</h1>
+        <button class="col-sm-4 btn  btn-success" (click)="addAnother()" type="button">Add</button>
+
+    </div>
+</div>  

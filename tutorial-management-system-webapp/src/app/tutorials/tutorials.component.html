@@ -1,0 +1,25 @@
+<div id="mainDiv" style="margin: auto; width: 800px;">
+    <div class="row">
+        <input class="col-sm-6" type="text"[(ngModel)]="searchKey" placeholder="Search by title">
+        <button class="col-sm-1 btn btn-primary" type="button" (click)="searchTutorials(searchKey)">Search</button>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-6">
+            <h1>Tutorials List</h1>
+            <div *ngFor="let tutorial of tutorials;"
+                (click)="onSelected(tutorial)">
+                <label>{{tutorial.title}}</label>
+            </div>
+            
+        </div>
+        <div class="col-sm-6" *ngIf="selectedTutorial">
+            <h1>Tutorial</h1>
+            <label>Title : {{selectedTutorial.title}}</label> <br>
+            <label>Description : {{selectedTutorial.description}}</label> <br>
+            <label>Status : {{getStatus(selectedTutorial.published)}}</label> <br>
+            <button class="btn btn-primary" (click)="editTutorial()">Edit</button>
+        </div>
+    </div>
+    <button style="background-color:rgb(233, 29, 29); color: white;" (click)="deleteAll()">Remove all</button>
+</div>

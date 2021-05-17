@@ -1,0 +1,17 @@
+<div id="mainDiv" style="margin: auto; width: 400px;">
+    <h1>Tutorial</h1>
+    <div class="row">
+        <label>Title</label><br><br>
+        <input type="text" [(ngModel)]="tutorial.title"/><br>
+        <label>Description</label><br><br>
+        <input type="text" [(ngModel)]="tutorial.description"/>  
+        <label>Status : {{getStatus(tutorial.published)}}</label>
+        <button *ngIf="tutorial.published != 1" class="col-sm-4 btn  btn-primary" (click)="updateStatus(1)" type="button">Publish</button>
+        <button *ngIf="tutorial.published == 1" class="col-sm-4 btn  btn-primary" (click)="updateStatus(2)" type="button">UnPublish</button>
+        <button class="col-sm-4 btn  btn-danger" (click)="deleteTutorial()" type="button">Delete</button>
+        <button class="col-sm-4 btn  btn-success" (click)="updateTutorial()" type="button">Update</button>
+    </div>
+    <div>
+        <label *ngIf="updatedSuccesfully">Tutorial updated Successfully.</label>
+    </div>
+</div>
